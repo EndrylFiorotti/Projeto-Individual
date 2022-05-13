@@ -1,0 +1,141 @@
+.container2{
+    width: 75%;
+    height: 100%;
+    float: left;
+}
+.caixa{
+    width: 100%;
+    height: 25%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+.caixa#caixaDiferente{
+    height: 48%;
+}
+.separa{
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.caixa1{
+    width: 40%;
+    height: 130px;
+
+    border-radius: 15px;
+
+    background-color: white;
+}
+.caixa1#caixa1D{
+    width: 90%;
+}
+.caixa1#caixa2D{
+    width: 90%;
+}
+.caixa2{
+    width: 70%;
+    height: 90%;
+
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    background-color: white;
+}
+.caixa3{
+    width: 90%;
+    height: 90%;
+
+    border-radius: 15px;
+
+    background-color: white;
+}
+.caixa3.chart{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.titulo{
+    width: 90%;
+    height: 40%;
+    margin: 30px 0 0 10px;
+
+    font-size: 16px;
+    font-weight: bolder;
+}
+.titulo.chart{
+    height: 20%;
+    margin: 10px 0 0px 0;
+}
+.titulo.barra{
+    height: 30%;
+}
+.content{
+    width: 100%;
+    height: 30%;
+
+    display: flex;
+    justify-content: center;
+}
+.content.chart{
+    height: 100%;
+}
+.chartJS{
+    width: 195px;
+}
+.content.barra{
+    width: 95%;
+    height: 50%;
+
+    flex-direction: column;
+}
+.dados{
+    width: 80%;
+    height: 100%;
+
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+    color: #6B39C3;
+    font-weight: bold;
+}
+.dados#perca{
+    width: 100%;
+}
+.dados#HorasA{
+    width: 90%;
+    margin-left: 10%;
+}
+.dados#HorasAM{
+    width: 90%;
+    margin-left: 10%;
+}
+.indice{
+    width: 30%;
+    height: 100%;
+
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.Container1{
+    width: 100%;
+    height: 90%;
+}
+.Container1.barra{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

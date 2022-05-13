@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* =======Primeiro Modal======= */
+#bg1 {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  display: none;
+}
+
+#bg1:target {
+  display: block;
+}
+
+#bg1:target ~ .box.first {
+  top: 25vh;
+  position: fixed;
+  display: inline;
+  transition: all 0.5s;
+  transition-delay: 0.2s;
+
+  z-index: 2;
+}
+
+/* =======Segundo Modal======= */
+
+#bg2 {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  display: none;
+}
+
+#bg2:target {
+  display: block;
+}
+
+#bg2:target ~ .box.second {
+  top: 25vh;
+  position: fixed;
+  transition: all 0.5s;
+  transition-delay: 0.2s;
+
+  z-index: 2;
+}
+
+/* =======Terceiro Modal======= */
+
+#bg3 {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  display: none;
+}
+
+#bg3:target {
+  display: block;
+}
+
+#bg3:target ~ .box.third {
+  top: 25vh;
+  position: fixed;
+  transition: all 0.5s;
+  transition-delay: 0.2s;
+  display: inline;
+
+  z-index: 2;
+}
+
+/* =======Quarto Modal======= */
+
+#bg4 {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  display: none;
+}
+
+#bg4:target {
+  display: block;
+}
+
+#bg4:target ~ .box.fourth {
+  top: 25vh;
+  position: fixed;
+  transition: all 0.5s;
+  transition-delay: 0.2s;
+  display: inline;
+
+  z-index: 1;
+}
+
+
+/* =======Caixa Config======= */
+
+.box {
+  width: 30vw;
+  height: flex;
+
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px;
+  margin-left: -16%;
+  left: 50%;
+  top: -410px;
+
+  border-radius: 10px;
+  background-color: white;
+}
+
+.box h2{
+  text-align: center;
+}
+
+.box p {
+  width: 90%;
+
+  font-size: 18px;
+}
+
+#close {
+  width: 30px;
+  height: 30px;
+  right: -20px;
+  top: -20px;
+
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: aliceblue;
+  font-family: "Arial";
+  text-decoration: none;
+  font-size: 20px;
+  background-color: red;
+  border-radius: 50px;
+}
+
+#close:hover {
+  opacity: 0.6;
+}
+
+/* =======Botão para chamar Modal======= */
+
+.modalButton {
+  margin-bottom: 15px;
+  padding: 10px 50px;
+
+  background-color: #6b39c3;
+  color: #fff;
+
+  border-radius: 30px;
+  border-style: none;
+
+  text-decoration: none;
+}
+
+.modalButton:hover {
+  background-color: #2d086e;
+}
+
+.modalButton:active {
+  background-color: #4c1aa1;
+}
+
+.modalButton:active {
+  text-decoration: none;
+  color: white;
+}
