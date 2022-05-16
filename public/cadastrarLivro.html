@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>BooKing | Cadastro</title>
+    <title>BooKing | Cadastro de Livros</title>
 
 
     <!-- <script src="./js/funcoes.js"></script> -->
@@ -22,9 +22,7 @@
         <div class="nav">
             <img src="https://cdn.discordapp.com/attachments/882040460011520030/974813802757521478/Logo_Preto_Coroa.png" alt="Logo BooKing">
             <ul class="navbar">
-                <li><a href="index.html">inicio</a></li>
-                <li><a href="">Livros</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="indexAdmin.html">inicio</a></li>
             </ul>
         </div>
     </div>
@@ -36,16 +34,14 @@
         <div class="container">
             <div class="caixaLogin">
                 <h1 class="titulo">
-                    Cadastro
+                    Cadastro de livro
                 </h1>
                 <label for="nome_input">Nome</label>
-                <input id="nome_input" type="text" placeholder="Seu nome">
-                <label for="email_input">E-mail</label>
-                <input id="email_input" type="text" placeholder="meuemail@provedor.com">
-                <label for="senha_input">Senha</label>
-                <input id="senha_input" type="password" placeholder="******">
-                <label for="confirmacao_senha_input">Confirmar Senha</label>
-                <input id="confirmacao_senha_input" type="password" placeholder="******">
+                <input id="nome_input" type="text" placeholder="Nome do livro">
+                <label for="sinopse_input">Sinopse</label>
+                <textarea id="sinopse_input" placeholder="Qual a história do livro" cols="30" rows="10"></textarea>
+                <label for="img_input">URL da capa do livro</label>
+                <input id="img_input" type="text" placeholder="URL Imagem">
                 <div class="botoes">
                     <button type="button">
                         Cancelar
@@ -71,11 +67,10 @@
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
         var nomeVar = nome_input.value;
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
-        var confirmacaoSenhaVar = confirmacao_senha_input.value;
+        var sinopseVar = sinopse_input.value;
+        var imgVar = img_input.value;
 
-        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        if (nomeVar == "" || sinopseVar == "" || imgVar == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
 
@@ -86,28 +81,8 @@
             setInterval(sumirMensagem, 5000)
         }
 
-        if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
-            // finalizarAguardar();
-            return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
-
-        if (senhaVar != confirmacaoSenhaVar) {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "As senhas inseridas devem ser iguais para prosseguir!";
-            // finalizarAguardar();
-            return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
-
         // Enviando o valor da nova input
-        fetch("/usuarios/cadastrar", {
+        fetch("/livros/cadastrar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -116,8 +91,8 @@
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nomeVar,
-                emailServer: emailVar,
-                senhaServer: senhaVar
+                sinopseServer: sinopseVar,
+                imgServer: imgVar
             })
         }).then(function (resposta) {
 
@@ -126,7 +101,7 @@
             if (resposta.ok) {
                 cardErro.style.display = "block"
                 mensagem_erro.innerHTML = "Cadastro realizado com sucesso!";
-                window.location = "./login.html";
+                window.location = "./indexAdmin.html";
                 limparFormulario();
                 finalizarAguardar();
             } else {

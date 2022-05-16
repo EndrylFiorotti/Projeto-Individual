@@ -19,9 +19,9 @@
 
     <div class="header">
         <div class="nav">
-            <img src="../assets/Logo_Preto.png" alt="Logo BooKing">
+            <img src="https://cdn.discordapp.com/attachments/882040460011520030/974813802757521478/Logo_Preto_Coroa.png" alt="Logo BooKing">
             <ul class="navbar">
-                <li><a href="#">inicio</a></li>
+                <li><a href="./indexCadastrado.html">inicio</a></li>
                 <li><a href="">Livros</a></li>
                 <li><a class="agora" href="login.html">Login</a></li>
             </ul>
@@ -108,13 +108,20 @@
                     console.log(json);
                     console.log(JSON.stringify(json));
 
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.EMAIL_USUARIO = json.emailUsuario;
+                    sessionStorage.NOME_USUARIO = json.nomeUsuario;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+                    sessionStorage.ADMIN_USUARIO = json.adminUsuario;
 
-                    setTimeout(function () {
+                    if ( json.adminUsuario== 'Sim' ) {
+                        setTimeout(function () {
+                        window.location = "./indexAdmin.html";
+                        }, 1000); // apenas para exibir o loading
+                    } else {
+                        setTimeout(function () {
                         window.location = "./indexCadastrado.html";
-                    }, 1000); // apenas para exibir o loading
+                        }, 1000); // apenas para exibir o loading
+                    }
 
                 });
 

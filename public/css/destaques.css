@@ -1,0 +1,87 @@
+/* <---------Destaques---------> */
+.destaques {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  margin: 10px 0px;
+}
+
+.destaques .container {
+  width: 90vw;
+  height: 50vh;
+  overflow-x: scroll;
+
+  display: flex;
+  align-items: center;
+
+  margin: 30px 0px;
+}
+
+.container::-webkit-scrollbar {
+    width: 12px;
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background-color: rgb(94, 6, 175);
+    border-radius: 10px;
+}
+
+.destaques .containerMenor {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.destaques .content {
+  min-width: 20vw;
+
+  margin: 0 50px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: white;
+  border-top: 5px solid rgb(94, 6, 175);
+  border-radius: 20px;
+  box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.8);
+}
+
+.destaques .imagem {
+  width: flex;
+  margin-top: -50px;
+  padding: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: white;
+  border-radius: 150px;
+  box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.8);
+}
+
+.destaques img {
+  width: 100px;
+}
+
+.destaques h2 {
+  text-align: center;
+  margin: 30px 0 0 0;
+  transition: 0.5s;
+}
+.destaques h2:hover {
+  font-size: 30px;
+}
+
+.destaques p {
+  margin: 30px;
+  padding-top: 8px;
+  font-size: 20px;
+
+  border-top: 2px solid;
+}

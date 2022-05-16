@@ -22,6 +22,29 @@ function validarSessao() {
     }
 }
 
+function validarLivros() {
+    // aguardar();
+    var nomeLivroV = sessionStorage.NOME_LIVRO;
+    var nomeSinopseV = sessionStorage.SINOPSE_LIVRO;
+    var nomeImgV = sessionStorage.IMG_LIVRO;
+    var idSessao = sessionStorage.ID_SESSAO;
+
+    var h1LoginUsuario = document.getElementById("h1_login_usuario");
+
+    if (email != null && nome != null) {
+        // window.alert(`Seja bem-vindo, ${nome}!`);
+        if (h1LoginUsuario != undefined) {
+            h1LoginUsuario.innerHTML = email;
+        }
+        b_usuario.innerHTML = nome;
+        b_id_sessao.innerHTML = idSessao;
+
+        // finalizarAguardar();
+    } else {
+        window.location = "../login.html";
+    }
+}
+
 function limparSessao() {
     // aguardar();
     sessionStorage.clear();

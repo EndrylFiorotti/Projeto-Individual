@@ -6,19 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/livros.css">
+    <link rel="stylesheet" href="css/destaques.css">
     <title>Site Institucional | Comprod</title>
 </head>
 
 <body>
     <div class="header">
         <div class="nav">
-            <img src="https://cdn.discordapp.com/attachments/819937634486976562/967450419792085032/LogoComprodTitulo.png"
-                alt="">
+            <img src="https://cdn.discordapp.com/attachments/882040460011520030/974813802757521478/Logo_Preto_Coroa.png"
+                alt="Logo BooKing">
             <ul class="navbar">
                 <li><a href="#" class="agora">inicio</a></li>
-                <li><a href="">Livros</a></li>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="#DestaquesTitulo">Destaques</a></li>
+                <li><a href="#livrosTitulo">Livros</a></li>
             </ul>
         </div>
     </div>
@@ -26,174 +27,223 @@
         <div class="container">
             <div class="caixa">
                 <p>
-                    ADMIN.
+                    Uma livraria para você.
                 </p>
             </div>
         </div>
     </div>
-    <div class="nossosValores">
-        <h1 id="Valores" class="titulo">
-            Nossos Valores
+    <div class="destaques">
+        <h1 id="DestaquesTitulo" class="titulo">
+            Destaques
         </h1>
         <div class="container">
-            <div class="content">
-                <div class="imagem">
-                    <img src="https://cdn-icons-png.flaticon.com/512/5454/5454645.png" alt="">
+            <div class="containerMenor">
+                <div class="box">
+                    <div class="content">
+                        <div class="imagem">
+                            <img src="https://cdn-icons-png.flaticon.com/512/5454/5454645.png" alt="">
+                        </div>
+                        <h2 id="tituloLivro">
+                            Produtividade
+                        </h2>
+                        <hr>
+                        <p>
+                            <span id="valor">R$</span>
+                        </p>
+                    </div>
                 </div>
-                <h2>
-                    Produtividade
-                </h2>
-                <hr>
-                <p>
-                    Nosso primeiro valor e maior objetivo para ser alcançado no nosso trabalho.
-                </p>
-                <a class="modalButton" href="#bg1" onclick="primeiroValor()">Ler mais</a>
-                <div id="bg1"></div>
-                <div class="box first">
-                    <a href="#Valores" id="close">X</a>
-                    <h2>Produtividade</h2>
+                <div class="content">
+                    <div class="imagem">
+                        <img src="https://cdn-icons-png.flaticon.com/512/5454/5454645.png" alt="">
+                    </div>
+                    <h2 id="tituloLivro">
+                        Produtividade
+                    </h2>
+                    <hr>
                     <p>
-                        Temos como nosso maior objetivo, além de garantir a saúde dos funcionários, proporcionarmos um
-                        elevado nivel de produtividade, utilizando como um meio a regularização dos ares-condicionados e
-                        a iluminação ambiente.
+                        <span id="valor">R$</span>
                     </p>
                 </div>
-            </div>
-            <div class="content">
-                <div class="imagem">
-                    <img src="https://cdn-icons-png.flaticon.com/512/6181/6181363.png" alt="">
-                </div>
-                <h2>
-                    Diminuir Riscos de Doenças
-                </h2>
-                <hr>
-                <p>
-                    Nosso segundo valor e o mais importante para um bom desempenho dos funcionários.
-                </p>
-                <a href="#bg2" class="modalButton" onclick="segundoValor()">Ler mais</a>
-                <div id="bg2"></div>
-                <div class="box second">
-                    <a href="#Valores" id="close">X</a>
-                    <h2>Diminuir Riscos de Doenças</h2>
+                <div class="content">
+                    <div class="imagem">
+                        <img src="https://cdn-icons-png.flaticon.com/512/5454/5454645.png" alt="">
+                    </div>
+                    <h2 id="tituloLivro">
+                        Produtividade
+                    </h2>
+                    <hr>
                     <p>
-                        Tendo em vista que o mau uso do ar-condicionado abaixa a imunidade, por conta do impacto gerado
-                        pelo uso desregulado deste equipamento na saúde dos usuários. E a iluminação não adequada do
-                        ambiente pode causar irritação nos olhos, cansaço visual, problemas de pele, baixa atenção,
-                        aumento no número de acidentes (por falta de atenção) diminuindo a produtividade dos
-                        funcionários.
+                        <span id="valor">R$</span>
                     </p>
                 </div>
-            </div>
-            <div class="content">
-                <div class="imagem">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3063/3063782.png" alt="">
-                </div>
-                <h2>
-                    Ambiente Mais Confortável
-                </h2>
-                <hr>
-                <p>
-                    Nosso terceiro valor e não menos importante, que é um ambiente confortável para seus funcionários.
-                </p>
-                <a class="modalButton" href="#bg3">Ler mais</a>
-                <div id="bg3"></div>
-                <div class="box third">
-                    <a href="#Valores" id="close">X</a>
-                    <h2>Ambiente mais Confortável</h2>
+                <div class="content">
+                    <div class="imagem">
+                        <img src="https://cdn-icons-png.flaticon.com/512/5454/5454645.png" alt="">
+                    </div>
+                    <h2 id="tituloLivro">
+                        Produtividade
+                    </h2>
+                    <hr>
                     <p>
-                        Com a regulamentação da temperatura e da iluminação ambiente através do sistema de alerta dos
-                        sensores, iremos proporcionar um ambiente mais confortável para os seus funcionários
-                        trabalharem, e assim aumentar a produtividade do mesmo.
+                        <span id="valor">R$</span>
+                    </p>
+                </div>
+                <div class="content">
+                    <div class="imagem">
+                        <img src="https://cdn-icons-png.flaticon.com/512/6181/6181363.png" alt="">
+                    </div>
+                    <h2 id="tituloLivro">
+                        Diminuir Riscos de Doenças
+                    </h2>
+                    <hr>
+                    <p>
+                        <span id="valor">R$</span>
+                    </p>
+                </div>
+                <div class="content">
+                    <div class="imagem">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3063/3063782.png" alt="">
+                    </div>
+                    <h2 id="tituloLivro">
+                        Ambiente Mais Confortável
+                    </h2>
+                    <hr>
+                    <p>
+                        <span id="valor">R$</span>
+                    </p>
+                </div>
+                <div class="content">
+                    <div class="imagem">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3063/3063782.png" alt="">
+                    </div>
+                    <h2 id="tituloLivro">
+                        Ambiente Mais Confortável
+                    </h2>
+                    <hr>
+                    <p>
+                        <span id="valor">R$</span>
+                    </p>
+                </div>
+                <div class="content">
+                    <div class="imagem">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3063/3063782.png" alt="">
+                    </div>
+                    <h2 id="tituloLivro">
+                        Ambiente Mais Confortável
+                    </h2>
+                    <hr>
+                    <p>
+                        <span id="valor">R$</span>
+                    </p>
+                </div>
+                <div class="content">
+                    <div class="imagem">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3063/3063782.png" alt="">
+                    </div>
+                    <h2 id="tituloLivro">
+                        Ambiente Mais Confortável
+                    </h2>
+                    <hr>
+                    <p>
+                        <span id="valor">R$</span>
+                    </p>
+                </div>
+                <div class="content">
+                    <div class="imagem">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3063/3063782.png" alt="">
+                    </div>
+                    <h2 id="tituloLivro">
+                        Ambiente Mais Confortável
+                    </h2>
+                    <hr>
+                    <p>
+                        <span id="valor">R$</span>
                     </p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="quemSomos">
-        <h1 id="Sobre" class="titulo">
-            Quem Somos
+    <div class="livros">
+        <h1 id="livrosTitulo" class="titulo">
+            Livros
         </h1>
+        <button onclick="AdicionarLivro()">Adicionar Livro</button>
+        <div class="container" id="caixa_Livros"></div>
+    </div>
+
+    <div class="maps">
         <div class="container">
-            <div class="content img">
+            <h1 class="titulo">
+                Nossa Localização
+            </h1>
+        </div>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.6790908815374!2d-46.64418848447163!3d-23.54404186683935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce584e32861fff%3A0xe9c71b18aa401a85!2sPra%C3%A7a%20da%20Rep%C3%BAblica%2C%20178%20-%20Rep%C3%BAblica%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2014786-079!5e0!3m2!1spt-BR!2sbr!4v1650557511254!5m2!1spt-BR!2sbr"
+            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div class="content">
                 <div class="subContent">
-                    <h3>O melhor para você e sua empresa</h3>
+                    <img src="" style="width: 40px">
+                    <p>Praça da República, 178, República - SP</p>
+                </div>
+                <div class="subContent">
+                    <img src="" style="width: 40px">
+                    <p>(11) 3789-9932</p>
+                </div>
+                <div class="subContent">
+                    <img src="" style="width: 40px">
+                    <p>suporte.booking@sptech.school</p>
                 </div>
             </div>
             <div class="content">
-                <img class="imagemCard"
-                    src="https://cdn.discordapp.com/attachments/955979167395106819/966780986090217532/logo_Comprod5.png"
-                    alt="">
-                <h2>
-                    Quem é a Comprod
-                </h2>
-                <hr>
-                <p>
-                    Se você deseja um ambiente mais confortável e ergonomico para seus funcionários produzirem mais, nós
-                    somos uma ótima escolha para você.
-                </p>
-                <a class="modalButton" href="#bg4">Ler mais</a>
-                <div id="bg4"></div>
-                <div class="box fourth">
-                    <a href="#Sobre" id="close">X</a>
-                    <h2>Comprod</h2>
-                    <p>
-                        A Comprod é uma empresa de tecnologia especializada em transformar o local de trabalho em um
-                        ambiente mais saudável e confortável, através de soluções tecnológicas com sensores de
-                        temperatura e luminosidade. Com projetos planejados e personalizados para o meio corporativo,
-                        somos capazes de aumentar a disposição e produtividade dos funcionários.
-                    </p>
-                </div>
+                <ul class="navbar">
+                    <li>
+                        <a href="#">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="#DestaquesTitulo">Destaques</a>
+                    </li>
+                    <li>
+                        <a href="#livrosTitulo">Livros</a>
+                    </li>
+                </ul>
             </div>
         </div>
+        <div class="direitos">
+            <p>Todos os direitos reservados BooKing © 2022</p>
+        </div>
     </div>
-
-            <div class="maps">
-                <div class="container">
-                    <h1 class="titulo">
-                        Nossa Localização
-                    </h1>
-                </div>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.6790908815374!2d-46.64418848447163!3d-23.54404186683935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce584e32861fff%3A0xe9c71b18aa401a85!2sPra%C3%A7a%20da%20Rep%C3%BAblica%2C%20178%20-%20Rep%C3%BAblica%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2014786-079!5e0!3m2!1spt-BR!2sbr!4v1650557511254!5m2!1spt-BR!2sbr"
-                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-
-            <div class="footer">
-                <div class="container">
-                    <div class="content">
-                        <div class="subContent">
-                            <img src="" style="width: 40px">
-                            <p>Praça da República, 178, República - SP</p>
-                        </div>
-                        <div class="subContent">
-                            <img src="" style="width: 40px">
-                            <p>(11) 3789-9932</p>
-                        </div>
-                        <div class="subContent">
-                            <img src="" style="width: 40px">
-                            <p>suporte.comprod@sptech.school</p>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <ul class="navbar">
-                            <li>
-                                <a href="#">Inicio</a>
-                            </li>
-                            <li>
-                                <a href="#Valores">Nossos Valores</a>
-                            </li>
-                            <li>
-                                <a href="#Sobre">Sobre</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="direitos">
-                    <p>Todos os direitos reservados Comprod © 2022</p>
-                </div>
-            </div>
 </body>
 
 </html>
+
+<script>
+    caixaLivros.innerHTML = sessionStorage.NOME_LIVRO + "<br>";
+    caixaLivros.innerHTML += sessionStorage.ID_LIVRO + "<br>";
+
+    // for (var i = 1; i <= idL.length; i++) {
+    //     caixa_Livros.innerHTML += `
+    //         <div class="content">
+    //             <img class="imagemCard" src="imgL" alt="">
+    //                 <h2 id="nomeL"></h2>
+    //                 <hr>
+    //                 <p id="sinopseL"></p>
+    //         </div>
+    //     `
+    //     nomeL.innerHTML = sessionStorage.NOME_LIVRO;
+    //     sinopseL.innerHTML = sessionStorage.SINOPSE_LIVRO;
+    //     imgL.innerHTML = sessionStorage.IMG_LIVRO;
+    // }
+    // // var qntdCliques = 0
+    // function AdicionarLivro() {
+    //     window.location = "./cadastrarLivro.html";
+    //     qntdCliques++
+    //     caixa_Livros.innerHTML = ''
+
+    // }
+</script>

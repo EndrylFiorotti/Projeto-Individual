@@ -8,6 +8,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  font-weight: bold;
 }
 
 .login .container {
@@ -42,6 +44,22 @@
   margin-bottom: 7px;
 
   text-align: center;
+  font-size: 16px;
+}
+
+.caixaLogin textarea {
+  width: 60%;
+
+  border-radius: 30px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #6b39c3;
+
+  padding: 10px;
+  margin-bottom: 7px;
+
+  text-align: center;
+  font-size: 16px;
 }
 
 .caixaLogin .botoes {
