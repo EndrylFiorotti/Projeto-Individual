@@ -11,6 +11,8 @@
     <title>Site Institucional | Comprod</title>
 </head>
 
+<script src="./js/funcoes.js"></script>
+
 <body>
     <div class="header">
         <div class="nav">
@@ -169,7 +171,7 @@
             Livros
         </h1>
         <button onclick="AdicionarLivro()">Adicionar Livro</button>
-        <div class="container" id="caixa_Livros"></div>
+        <div class="container" id="caixa_livros"></div>
     </div>
 
     <div class="maps">
@@ -223,9 +225,6 @@
 </html>
 
 <script>
-    caixaLivros.innerHTML = sessionStorage.NOME_LIVRO + "<br>";
-    caixaLivros.innerHTML += sessionStorage.ID_LIVRO + "<br>";
-
     // for (var i = 1; i <= idL.length; i++) {
     //     caixa_Livros.innerHTML += `
     //         <div class="content">
@@ -240,10 +239,10 @@
     //     imgL.innerHTML = sessionStorage.IMG_LIVRO;
     // }
     // // var qntdCliques = 0
-    // function AdicionarLivro() {
-    //     window.location = "./cadastrarLivro.html";
-    //     qntdCliques++
-    //     caixa_Livros.innerHTML = ''
+    function AdicionarLivro() {
+                window.location = "./cadastrarLivro.html";
+                // qntdCliques++
+                // caixa_Livros.innerHTML = ''
 
-    // }
+            }
 </script>
