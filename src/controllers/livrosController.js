@@ -2,27 +2,42 @@ var livrosModel = require("../models/livrosModel");
 
 var sessoes = [];
 
-function testar(req, res) {
-    console.log("ENTRAMOS NA livrosController");
-    res.json("ESTAMOS FUNCIONANDO!");
+// function testar(req, res) {
+//     console.log("ENTRAMOS NA livrosController");
+//     res.json("ESTAMOS FUNCIONANDO!");
+// }
+
+function buscarLivros(req, res) {
+
+    livrosModel.buscarLivros().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
 }
 
-function listar(req, res) {
-    livrosModel.listar()
-        .then(function (resultado) {
-            if (resultado.length > 0) {
-                res.status(200).json(resultado);
-            } else {
-                res.status(204).send("Nenhum resultado encontrado!")
-            }
-        }).catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-}
+// function listar(req, res) {
+//     livrosModel.listar()
+//         .then(function (resultado) {
+//             if (resultado.length > 0) {
+//                 res.status(200).json(resultado);
+//             } else {
+//                 res.status(204).send("Nenhum resultado encontrado!")
+//             }
+//         }).catch(
+//             function (erro) {
+//                 console.log(erro);
+//                 console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+//                 res.status(500).json(erro.sqlMessage);
+//             }
+//         );
+// }
 
 // function mostrarLivros(req, res) {
 //     var nomeLivro = req.body.nomeServer;
@@ -82,6 +97,7 @@ function cadastrar(req, res) {
 module.exports = {
     // mostrarLivros,
     cadastrar,
-    listar,
-    testar
+    buscarLivros,
+    // listar,
+    // estar
 }

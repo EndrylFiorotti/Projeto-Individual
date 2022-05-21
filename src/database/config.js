@@ -26,6 +26,14 @@ var mySqlConfig = {
     port: 3307,
 };
 
+// Faculdade
+// var mySqlConfig = {
+//     host: "localhost",
+//     user: "aluno",
+//     database: "dbbooking",
+//     password: "sptech"
+// };
+
 function executar(instrucao) {
     // VERIFICA A VARIÁVEL DE AMBIENTE SETADA EM app.js
     if (process.env.AMBIENTE_PROCESSO == "producao") {
