@@ -226,6 +226,7 @@
 
 <script>
     obterDados();
+
     function obterDados() {
         fetch(`/livros/mostrarLivros`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
@@ -233,7 +234,7 @@
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
 
-                    plotarGrafico(resposta);
+                    plotarDados(resposta);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -246,20 +247,36 @@
 
     function plotarDados(resposta) {
         console.log('iniciando plotagem do gráfico...');
-        var dados = {
-            "idLivro": idLivro,
-            "nomeLivro": nomeLivro,
-            "sinopseLivro": sinopseLivro,
-            "imgLivro": imgLivro
-        }
+        var dados = []
+            // livro = {
+            //     idLivro: 'idLivro',
+            //     nomeLivro: 'nomeLivro',
+            //     sinopseLivro: 'sinopseLivro',
+            //     imgLivro: 'imgLivro'
+            // }
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
-            dados.labels.push(registro.idLivro);
-            dados.datasets[0].data.push(registro.nomeLivro);
-            dados.datasets[1].data.push(registro.sinopseLivro);
-            dados.datasets[1].data.push(registro.imgLivro);
+            dados.push(registro.idLivro);
+            dados.push(registro.nomeLivro);
+            dados.push(registro.sinopseLivro);
+            dados.push(registro.imgLivro);
         }
-        caixa_livros.innerHTML = `${registro}`
+        for( var i = 0; i < dados.length; i++ ) {
+            caixa_livros.innerHTML += `
+                <div class="content">
+                    <div class="imagem">
+                        ${dados[i]}
+                    </div>
+                    <h2 id="tituloLivro">
+                        ${dados[i]}
+                    </h2>
+                    <hr>
+                    <p>
+                        <span id="valor">${dados[i]}</span>       
+                    </p>
+                </div>
+            `
+        }
     }
 
     function AdicionarLivro() {
