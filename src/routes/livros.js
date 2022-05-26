@@ -15,6 +15,10 @@ router.get("/mostrarLivros", function (req, res) {
     livrosController.buscarLivros(req, res);
 });
 
+router.get("/mostrarLivrosEspecifico", function (req, res) {
+    livrosController.buscarLivrosEspecifico(req, res);
+});
+
 //Recebendo os dados do html e direcionando para a função cadastrar de livrosController.js
 router.post("/cadastrar", function (req, res) {
     livrosController.cadastrar(req, res);
