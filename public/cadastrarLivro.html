@@ -78,7 +78,11 @@
             return false;
         }
         else {
-            setInterval(sumirMensagem, 5000)
+            if( sinopseVar.length > 1000 ) {
+                mensagem_erro.innerHTML = "Texto muito grande!";
+            } else {
+                setInterval(sumirMensagem, 5000)
+            }
         }
 
         // Enviando o valor da nova input

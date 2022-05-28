@@ -15,7 +15,7 @@ router.get("/mostrarLivros", function (req, res) {
     livrosController.buscarLivros(req, res);
 });
 
-router.get("/mostrarLivrosEspecifico", function (req, res) {
+router.get("/mostrarLivrosEspecifico/:idLivro", function (req, res) {
     livrosController.buscarLivrosEspecifico(req, res);
 });
 

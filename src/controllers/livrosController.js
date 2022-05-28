@@ -24,7 +24,9 @@ function buscarLivros(req, res) {
 
 function buscarLivrosEspecifico(req, res) {
 
-    livrosModel.buscarLivros().then(function (resultado) {
+    var idLivro = req.params.idLivro;
+
+    livrosModel.buscarLivrosEspecifico(idLivro).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
