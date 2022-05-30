@@ -15,6 +15,10 @@ router.get("/mostrarLivros", function (req, res) {
     livrosController.buscarLivros(req, res);
 });
 
+router.get("/mostrarLivrosDestaque", function (req, res) {
+    livrosController.buscarDestaques(req, res);
+});
+
 router.get("/mostrarLivrosEspecifico/:idLivro", function (req, res) {
     livrosController.buscarLivrosEspecifico(req, res);
 });
@@ -22,10 +26,6 @@ router.get("/mostrarLivrosEspecifico/:idLivro", function (req, res) {
 //Recebendo os dados do html e direcionando para a função cadastrar de livrosController.js
 router.post("/cadastrar", function (req, res) {
     livrosController.cadastrar(req, res);
-})
-
-// router.post("/autenticar", function (req, res) {
-//     livrosController.entrar(req, res);
-// });
+});
 
 module.exports = router;

@@ -5,14 +5,15 @@
   align-items: center;
   flex-direction: column;
 
-  margin: 10px 0px;
+  margin-top: 8vh;
 }
 
 .destaques .container {
   width: 90vw;
   height: 50vh;
-  overflow-x: scroll;
+  padding: 45px 0 0 0;
 
+  overflow-x: scroll;
   display: flex;
   align-items: center;
 
@@ -20,14 +21,14 @@
 }
 
 .container::-webkit-scrollbar {
-    width: 12px;
-    border: 1px solid;
-    border-radius: 10px;
+  width: 12px;
+  border: 1px solid;
+  border-radius: 10px;
 }
 
 .container::-webkit-scrollbar-thumb {
-    background-color: rgb(94, 6, 175);
-    border-radius: 10px;
+  background-color: rgb(94, 6, 175);
+  border-radius: 10px;
 }
 
 .destaques .containerMenor {
@@ -51,10 +52,10 @@
   box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.8);
 }
 
-.destaques .imagem {
-  width: flex;
+.destaques .imagemCard {
+  width: 200px;
+  height: 200px;
   margin-top: -50px;
-  padding: 30px;
 
   display: flex;
   align-items: center;
@@ -65,23 +66,11 @@
   box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.8);
 }
 
-.destaques img {
-  width: 100px;
-}
-
-.destaques h2 {
+.destaques #tituloLivro {
   text-align: center;
   margin: 30px 0 0 0;
   transition: 0.5s;
 }
-.destaques h2:hover {
+.destaques #tituloLivro:hover {
   font-size: 30px;
-}
-
-.destaques p {
-  margin: 30px;
-  padding-top: 8px;
-  font-size: 20px;
-
-  border-top: 2px solid;
 }

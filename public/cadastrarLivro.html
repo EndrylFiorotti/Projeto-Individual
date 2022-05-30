@@ -38,10 +38,17 @@
                 </h1>
                 <label for="nome_input">Nome</label>
                 <input id="nome_input" type="text" placeholder="Nome do livro">
+                <label for="nome_autor_input">Nome Autor</label>
+                <input id="nome_autor_input" type="text" placeholder="Nome do Autor">
                 <label for="sinopse_input">Sinopse</label>
                 <textarea id="sinopse_input" placeholder="Qual a história do livro" cols="30" rows="10"></textarea>
                 <label for="img_input">URL da capa do livro</label>
                 <input id="img_input" type="text" placeholder="URL Imagem">
+                <label for="destaque_select">Destaque</label>
+                <select id="destaque_select">
+                    <option value="0">Não</option>
+                    <option value="1">Sim</option>
+                </select>
                 <div class="botoes">
                     <button type="button">
                         Cancelar
@@ -67,10 +74,12 @@
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
         var nomeVar = nome_input.value;
+        var autorVar = nome_autor_input.value;
         var sinopseVar = sinopse_input.value;
         var imgVar = img_input.value;
+        var destaqueVAR = destaque_select.value;
 
-        if (nomeVar == "" || sinopseVar == "" || imgVar == "") {
+        if (nomeVar == "" || sinopseVar == "" || imgVar == "" || autorVar == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
 
@@ -95,8 +104,10 @@
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nomeVar,
+                autorServer: autorVar,
                 sinopseServer: sinopseVar,
-                imgServer: imgVar
+                imgServer: imgVar,
+                destaqueServer: destaqueVAR
             })
         }).then(function (resposta) {
 

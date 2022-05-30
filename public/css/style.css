@@ -62,6 +62,8 @@ h1{
   width: 100vw;
   height: 10vh;
 
+  top: 0;
+
   background-color: rgba(255, 255, 255, 0.9);
   border-bottom: 5px solid rgb(94, 6, 175);
 
@@ -89,7 +91,7 @@ h1{
 
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -134,8 +136,8 @@ li .btn-usuario img {
   height: 50px;
 }
 
-li .btn-usuario:active {
-  background-color: lightgray;
+li .btn-usuario img:hover {
+  cursor: pointer;
 }
 
 ul .agora:after {
@@ -207,65 +209,6 @@ ul .agora:after {
   font-size: 70px;
   font-weight: bold;
   color: white;
-}
-/* <---------Equipe---------> */
-.equipe {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-  margin: 30px 0px;
-}
-
-.equipe h1{
-  text-align: center;
-  margin-bottom: 100px;
-}
-
-.equipe .content{
-  display: flex;
-  justify-content: center;
-  margin-bottom: 100px;
-}
-
-.equipe .card{
-  width: 25%;
-  margin-top: 20px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  background-color: white;
-  border-top: 5px solid rgb(94, 6, 175);
-  border-radius: 20px;
-  box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.8);
-}
-
-.equipe .imagem{
-  width: 200px;
-  margin-top: -100px;
-
-  border-radius: 100px;
-  box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.8);
-}
-
-.equipe h2{
-  margin: 30px 0 0 0;
-}
-
-.equipe .sociais{
-  width: 80%;
-  margin: 30px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-.sociais img{
-  width: 50px;
 }
 /* <---------Footer---------> */
 .maps {

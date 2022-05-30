@@ -22,6 +22,21 @@ function buscarLivros(req, res) {
     });
 }
 
+function buscarDestaques(req, res) {
+
+    livrosModel.buscarDestaques().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 function buscarLivrosEspecifico(req, res) {
 
     var idLivro = req.params.idLivro;
@@ -42,14 +57,16 @@ function buscarLivrosEspecifico(req, res) {
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
+    var autor = req.body.autorServer;
     var sinopse = req.body.sinopseServer;
     var img = req.body.imgServer;
+    var destaque = req.body.destaqueServer;
 
     // Faça as validações dos valores
 
 
     // Passe os valores como parâmetro e vá para o arquivo livrosModel.js
-    livrosModel.cadastrar(nome, sinopse, img)
+    livrosModel.cadastrar(nome, autor, sinopse, img, destaque)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -71,4 +88,5 @@ module.exports = {
     cadastrar,
     buscarLivros,
     buscarLivrosEspecifico,
+    buscarDestaques,
 }

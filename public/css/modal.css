@@ -78,8 +78,9 @@
     font-size: 20px;
   }
 
-  .btn-sair:active {
-    box-shadow: 3px rgb(255, 0, 0, 0.8);
+  .btn-sair:hover {
+    color: rgb(94, 6, 175);
+    cursor: pointer;
   }
   
   #close {
