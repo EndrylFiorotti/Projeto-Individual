@@ -10,4 +10,12 @@
     <div id="informacoes_livro"></div>
 </body>
 </html>
-<script src="js/livrosInfo.js"></script>
+<script>
+    Teste();
+    function Teste() {
+        var infoLivro = sessionStorage.livro;
+        for( var i = 0; i < infoLivro.length; i++ ) {
+            informacoes_livro.innerHTML = infoLivro[i];
+        }
+    }
+</script>

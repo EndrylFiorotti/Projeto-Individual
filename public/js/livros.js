@@ -51,9 +51,12 @@ function plotarDestaques(resposta) {
       <div class="imagem">
         <img class="imagemCard" src="${dados.imgLivro[i]}">
       </div>
-      <h2 id="tituloLivro">
+      <h2 id="nomeLivro">
         ${dados.nomeLivro[i]}
       </h2>
+      <h3 id="autorLivro">
+        ${dados.autorLivro[i]}
+      </h3>
       <hr>
       <button class="btn-livros" onclick="obterDadosLivroEspecifico(${dados.idLivro[i]})">
         Ver mais
@@ -113,10 +116,13 @@ function plotarDados(resposta) {
             <div class="imagem">
                 <img class="imagemCard" src="${dados.imgLivro[i]}">
             </div>
-            <h2 id="tituloLivro">
-                ${dados.nomeLivro[i]}
+            <h2 id="nomeLivro">
+              ${dados.nomeLivro[i]}
             </h2>
             <hr>
+            <h3 id="autorLivro">
+              ${dados.autorLivro[i]}
+            </h3>
             <button class="btn-livros" onclick="obterDadosLivroEspecifico(${dados.idLivro[i]})">
               Ver mais
             </button>
@@ -137,7 +143,7 @@ function obterDadosLivroEspecifico(idLivro) {
       response.json().then(function (resposta) {
         // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
         resposta.reverse();
-
+        sessionStorage.setItem("livro", JSON.stringify(resposta))
         plotarLivrosEspecificos(resposta, idLivro);
       });
     } else {
@@ -146,6 +152,7 @@ function obterDadosLivroEspecifico(idLivro) {
   }).catch(function (error) {
     console.error(`Erro na obtenção dos dados: ${error.message}`);
   });
+  window.location = "../livroPagina.html"
 }
 
 function plotarLivrosEspecificos(resposta) {
