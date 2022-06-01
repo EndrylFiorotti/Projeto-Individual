@@ -1,21 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BooKing | Livro </title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/livroPagina.css">
+    <title id="tituloPagina">BooKing | Livro</title>
 </head>
+
 <body>
-    <div id="informacoes_livro"></div>
+    <!-- Modal -->
+    <div id="bg"></div>
+    <div class="box">
+        <a href="#Valores" id="close">X</a>
+        <div id="titulo"></div>
+        <div id="texto"></div>
+        <div class="btn">
+            <button onclick="limparSessao()" class="btn-sair">Logout</button>
+        </div>
+    </div>
+
+    <div class="header">
+        <div class="nav">
+            <img src="https://cdn.discordapp.com/attachments/882040460011520030/974813802757521478/Logo_Preto_Coroa.png"
+                alt="Logo BooKing">
+            <ul class="navbar">
+                <li><a href="indexAdmin.html">inicio</a></li>
+                <li><a href="indexAdmin.html#DestaquesTitulo">Destaques</a></li>
+                <li><a href="indexAdmin.html#livrosTitulo">Livros</a></li>
+                <li>
+                    <button onclick="Usuario()" class="btn-usuario">
+                        <img src="https://cdn-icons-png.flaticon.com/512/17/17004.png" alt="Usuário">
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container_cima">
+        <div class="content">
+            <div class="imagem" id="imagem"></div>
+            <div class="div_info">
+                <div id="nome"></div>
+                <div id="autor"></div>
+
+                <div id="sinopse">
+                    <p id="texto_sinopse"></p>
+                </div>
+
+                <div id="destaque"></div>
+            </div>
+        </div>
+    </div>
+
 </body>
+
 </html>
+<script src="js/modal.js"></script>
 <script>
-    Teste();
-    function Teste() {
-        var infoLivro = sessionStorage.livro;
-        for( var i = 0; i < infoLivro.length; i++ ) {
-            informacoes_livro.innerHTML = infoLivro[i];
-        }
+    Plotar();
+    function Plotar() {
+        tituloPagina.innerHTML = `BooKing | ${sessionStorage.nomeLivro}`;
+        imagem.innerHTML = `<img src="${sessionStorage.imgLivro}" class="imagemLivro">`;
+        nome.innerHTML = `${sessionStorage.nomeLivro}<br>`;
+        autor.innerHTML = `${sessionStorage.autorLivro}`
+        texto_sinopse.innerHTML = `${sessionStorage.sinopseLivro}`
+        if (sessionStorage.destaqueLivro == 1) {
+            destaque.innerHTML = `Este livro está nos destaques!!!`
+        };
     }
 </script>

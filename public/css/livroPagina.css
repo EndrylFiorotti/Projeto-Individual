@@ -1,0 +1,59 @@
+.header {
+    position: static;
+}
+
+.container_cima {
+    width: 100vw;
+    height: 70vh;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    border-bottom: 2px solid red;
+}
+
+.container_cima .content {
+    width: 80%;
+    height: 80%;
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+
+    border-radius: 0 10px 0 10px;
+    background-color: #DCDCDC;
+}
+
+.container_cima .imagem {
+    height: 95%;
+    display: flex;
+    justify-content: center;
+    
+    border: 3px solid black;
+    border-radius: 0 10px 0 10px;
+    overflow: hidden;
+}
+
+.container_cima .div_info {
+    width: 80%;
+    margin: 10px;
+}
+
+.container_cima #nome {
+    font-size: 29px;
+    transition: .5s;
+}
+
+.container_cima #nome:hover {
+    font-size: 30px;
+}
+
+.container_cima #autor {
+    font-size: 20px;
+}
+
+.container_cima #sinopse {
+    width: 100%;
+    margin: 10px 0;   
+}

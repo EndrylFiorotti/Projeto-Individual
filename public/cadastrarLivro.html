@@ -105,18 +105,12 @@
         if ( nomeVar.length > 45 ) {
             mensagem_erro.innerHTML = "Nome do livro muito grande!"
             return false;
-        } else if( nomeVar.length < 11 ) {
-            mensagem_erro.innerHTML = "Nome do livro muito pequeno!"
-            return false;
         } else {
             setInterval(sumirMensagem, 5000)
         }
 
         if ( autorVar.length > 45 ) {
             mensagem_erro.innerHTML = "Nome do autor muito grande!"
-            return false;
-        } else if( autorVar.length < 11 ) {
-            mensagem_erro.innerHTML = "Nome do autor muito pequeno!"
             return false;
         } else {
             setInterval(sumirMensagem, 5000)

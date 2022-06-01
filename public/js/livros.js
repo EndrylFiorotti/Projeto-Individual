@@ -143,7 +143,6 @@ function obterDadosLivroEspecifico(idLivro) {
       response.json().then(function (resposta) {
         // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
         resposta.reverse();
-        sessionStorage.setItem("livro", JSON.stringify(resposta))
         plotarLivrosEspecificos(resposta, idLivro);
       });
     } else {
@@ -152,7 +151,6 @@ function obterDadosLivroEspecifico(idLivro) {
   }).catch(function (error) {
     console.error(`Erro na obtenção dos dados: ${error.message}`);
   });
-  window.location = "../livroPagina.html"
 }
 
 function plotarLivrosEspecificos(resposta) {
@@ -177,13 +175,11 @@ function plotarLivrosEspecificos(resposta) {
     dadosLivro.destaqueLivro.push(registro.destaqueLivro);
   }
 
-  for (var i = 0; i < dadosLivro.idLivro.length; i++) {
-    informacoes_livro.innerHTML = `
-       ${dadosLivro.idLivro}<br>
-       ${dadosLivro.nomeLivro}<br>
-       ${dadosLivro.sinopseLivro}<br>
-       ${dadosLivro.autorLivro}<br>
-       ${dadosLivro.destaqueLivro}<br>
-    `
-  }
+  sessionStorage.setItem("idLivro", dadosLivro.idLivro);
+  sessionStorage.setItem("nomeLivro", dadosLivro.nomeLivro);
+  sessionStorage.setItem("sinopseLivro", dadosLivro.sinopseLivro);
+  sessionStorage.setItem("imgLivro", dadosLivro.imgLivro);
+  sessionStorage.setItem("autorLivro", dadosLivro.autorLivro);
+  sessionStorage.setItem("destaqueLivro", dadosLivro.destaqueLivro);
+  window.location = "../livroPagina.html";
 }

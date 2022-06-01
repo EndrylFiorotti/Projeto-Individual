@@ -43,4 +43,4 @@ CREATE TABLE Comentario(
 SELECT * FROM Usuario;
 SELECT * FROM Livro;
 -- DELETE FROM Livro WHERE idLivro = 10;
-UPDATE Usuario SET adminUsuario = "Sim" WHERE idUsuario = 01;
+INSERT INTO Usuario VALUES ( null, 'Endryl Fiorotti', 'endryl@gmail.com', '102030', 'Sim' );
