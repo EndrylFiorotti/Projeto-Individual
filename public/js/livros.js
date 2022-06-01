@@ -51,9 +51,12 @@ function plotarDestaques(resposta) {
       <div class="imagem">
         <img class="imagemCard" src="${dados.imgLivro[i]}">
       </div>
-      <h2 id="tituloLivro">
+      <h2 id="nomeLivro">
         ${dados.nomeLivro[i]}
       </h2>
+      <h3 id="autorLivro">
+        ${dados.autorLivro[i]}
+      </h3>
       <hr>
       <button class="btn-livros" onclick="obterDadosLivroEspecifico(${dados.idLivro[i]})">
         Ver mais
@@ -113,10 +116,13 @@ function plotarDados(resposta) {
             <div class="imagem">
                 <img class="imagemCard" src="${dados.imgLivro[i]}">
             </div>
-            <h2 id="tituloLivro">
-                ${dados.nomeLivro[i]}
+            <h2 id="nomeLivro">
+              ${dados.nomeLivro[i]}
             </h2>
             <hr>
+            <h3 id="autorLivro">
+              ${dados.autorLivro[i]}
+            </h3>
             <button class="btn-livros" onclick="obterDadosLivroEspecifico(${dados.idLivro[i]})">
               Ver mais
             </button>
@@ -137,7 +143,6 @@ function obterDadosLivroEspecifico(idLivro) {
       response.json().then(function (resposta) {
         // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
         resposta.reverse();
-
         plotarLivrosEspecificos(resposta, idLivro);
       });
     } else {
@@ -170,13 +175,11 @@ function plotarLivrosEspecificos(resposta) {
     dadosLivro.destaqueLivro.push(registro.destaqueLivro);
   }
 
-  for (var i = 0; i < dadosLivro.idLivro.length; i++) {
-    informacoes_livro.innerHTML = `
-       ${dadosLivro.idLivro}<br>
-       ${dadosLivro.nomeLivro}<br>
-       ${dadosLivro.sinopseLivro}<br>
-       ${dadosLivro.autorLivro}<br>
-       ${dadosLivro.destaqueLivro}<br>
-    `
-  }
+  sessionStorage.setItem("idLivro", dadosLivro.idLivro);
+  sessionStorage.setItem("nomeLivro", dadosLivro.nomeLivro);
+  sessionStorage.setItem("sinopseLivro", dadosLivro.sinopseLivro);
+  sessionStorage.setItem("imgLivro", dadosLivro.imgLivro);
+  sessionStorage.setItem("autorLivro", dadosLivro.autorLivro);
+  sessionStorage.setItem("destaqueLivro", dadosLivro.destaqueLivro);
+  window.location = "../livroPagina.html";
 }

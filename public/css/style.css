@@ -5,6 +5,10 @@
   font-family: 'Roboto', 'Open Sans', sans-serif;
 }
 
+button {
+  cursor: pointer;
+}
+
 html {
   scroll-behavior: smooth;
 }

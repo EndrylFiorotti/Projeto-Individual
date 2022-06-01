@@ -25,15 +25,34 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  
   border-radius: 20px;
   border-top: 5px solid #6b39c3;
   background-color: rgba(255, 255, 255, 0.7);
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.7);
 }
 
+.caixaLogin.livro{
+  width: 50vw;
+}
+
+.caixaLogin .caixaCampos {
+  width: 100%;
+
+  display: flex;
+}
+
+.caixaLogin .divisao {
+  width: 50%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .caixaLogin input {
-  width: 60%;
+  width: 80%;
 
   border-radius: 30px;
   border-style: solid;
@@ -48,7 +67,7 @@
 }
 
 .caixaLogin textarea {
-  width: 60%;
+  width: 80%;
 
   border-radius: 30px;
   border-style: solid;
@@ -56,6 +75,19 @@
   border-color: #6b39c3;
 
   padding: 10px;
+  margin-bottom: 7px;
+
+  text-align: center;
+  font-size: 16px;
+}
+
+.caixaLogin select {
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #6b39c3;
+
+  padding: 5px;
   margin-bottom: 7px;
 
   text-align: center;
@@ -84,4 +116,22 @@
 }
 .caixaLogin button:active {
   background-color: #4c1aa1;
+}
+
+/* erros */
+#card_erro {
+  display: none;
+  background-color: #fff;
+  color: black;
+  width: 230px;
+  position: fixed;
+  border-radius: 4px;
+  border: #e6005a 3px solid;
+  padding: 10px;
+  margin-right: 10%;
+}
+
+#card_erro #mensagem_erro{
+  font-weight: 500;
+  font-size: 20px;
 }

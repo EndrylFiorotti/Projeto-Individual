@@ -13,7 +13,9 @@ CREATE TABLE Livro(
 	idLivro INT PRIMARY KEY AUTO_INCREMENT,
     nomeLivro VARCHAR(45),
     sinopseLivro VARCHAR(1000),
-    imgLivro VARCHAR(5000)
+    imgLivro VARCHAR(5000),
+    autorLivro VARCHAR(45),
+    destaqueLivro INT, CHECK( destaqueLivro = 0 or destaqueLivro = 1 )
 );
 
 CREATE TABLE Genero(
@@ -40,5 +42,5 @@ CREATE TABLE Comentario(
 
 SELECT * FROM Usuario;
 SELECT * FROM Livro;
--- UPDATE Livro SET imgLivro = "https://i.zst.com.br/thumbs/12/22/10/48176509.jpg" WHERE idLivro = 1;
-UPDATE Usuario SET adminUsuario = "Sim" WHERE idUsuario = 01;
+-- DELETE FROM Livro WHERE idLivro = 10;
+INSERT INTO Usuario VALUES ( null, 'Endryl Fiorotti', 'endryl@gmail.com', '102030', 'Sim' );

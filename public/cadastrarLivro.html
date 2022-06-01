@@ -8,67 +8,83 @@
 
     <title>BooKing | Cadastro de Livros</title>
 
-
-    <!-- <script src="./js/funcoes.js"></script> -->
-
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/styleLogin.css">
+    <link rel="stylesheet" href="css/modal.css">
 </head>
 
 <body>
+    <!-- Modal -->
+    <div id="bg"></div>
+    <div class="box">
+        <a href="#Valores" id="close">X</a>
+        <div id="titulo"></div>
+        <div id="texto"></div>
+        <div class="btn">
+            <button onclick="limparSessao()" class="btn-sair">Logout</button>
+        </div>
+    </div>
 
     <!--header inicio-->
     <div class="header">
         <div class="nav">
-            <img src="https://cdn.discordapp.com/attachments/882040460011520030/974813802757521478/Logo_Preto_Coroa.png" alt="Logo BooKing">
+            <img src="https://cdn.discordapp.com/attachments/882040460011520030/974813802757521478/Logo_Preto_Coroa.png"
+                alt="Logo BooKing">
             <ul class="navbar">
                 <li><a href="indexAdmin.html">inicio</a></li>
+                <li>
+                    <button onclick="Usuario()" class="btn-usuario">
+                        <img src="https://cdn-icons-png.flaticon.com/512/17/17004.png" alt="Usuário">
+                    </button>
+                </li>
             </ul>
         </div>
     </div>
     <!--header fim-->
 
-
-
     <div class="login">
         <div class="container">
-            <div class="caixaLogin">
+            <form class="caixaLogin livro">
                 <h1 class="titulo">
                     Cadastro de livro
                 </h1>
-                <label for="nome_input">Nome</label>
-                <input id="nome_input" type="text" placeholder="Nome do livro">
-                <label for="nome_autor_input">Nome Autor</label>
-                <input id="nome_autor_input" type="text" placeholder="Nome do Autor">
-                <label for="sinopse_input">Sinopse</label>
-                <textarea id="sinopse_input" placeholder="Qual a história do livro" cols="30" rows="10"></textarea>
-                <label for="img_input">URL da capa do livro</label>
-                <input id="img_input" type="text" placeholder="URL Imagem">
-                <label for="destaque_select">Destaque</label>
-                <select id="destaque_select">
-                    <option value="0">Não</option>
-                    <option value="1">Sim</option>
-                </select>
+                <div class="caixaCampos">
+                    <div class="divisao">
+                        <label for="nome_input">Nome</label>
+                        <input id="nome_input" type="text" placeholder="Nome do livro">
+                        <label for="nome_autor_input">Nome do Autor</label>
+                        <input id="nome_autor_input" type="text" placeholder="Nome do Autor">
+                        <label for="img_input">URL da capa do livro</label>
+                        <input id="img_input" type="text" placeholder="URL Imagem">
+                        <label for="destaque_select">Destaque</label>
+                        <select id="destaque_select">
+                            <option value="0">Não</option>
+                            <option value="1">Sim</option>
+                        </select>
+                    </div>
+                    <div class="divisao">
+                        <label for="sinopse_input">Sinopse</label>
+                        <textarea id="sinopse_input" placeholder="Qual a história do livro" cols="30"
+                            rows="10"></textarea>
+                    </div>
+                </div>
+                <div id="cardErro">
+                    <div id="mensagem_erro"></div>
+                </div>
                 <div class="botoes">
-                    <button type="button">
+                    <button type="reset">
                         Cancelar
                     </button>
-                    <button class="btn" onclick="cadastrar()">
+                    <button class="btn" type="button" onclick="cadastrar()">
                         Cadastrar
                     </button>
                 </div>
-                <div id="cardErro">
-                    <div id="mensagem_erro">
-
-                    </div>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </body>
 
 </html>
-
 <script>
     function cadastrar() {
         //Recupere o valor da nova input pelo nome do id
@@ -77,21 +93,37 @@
         var autorVar = nome_autor_input.value;
         var sinopseVar = sinopse_input.value;
         var imgVar = img_input.value;
-        var destaqueVAR = destaque_select.value;
+        var destaqueVar = destaque_select.value;
 
         if (nomeVar == "" || sinopseVar == "" || imgVar == "" || autorVar == "") {
-            cardErro.style.display = "block"
             mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
-
-            // finalizarAguardar();
             return false;
+        } else {
+            setInterval(sumirMensagem, 5000)
+        } 
+
+        if ( nomeVar.length > 45 ) {
+            mensagem_erro.innerHTML = "Nome do livro muito grande!"
+            return false;
+        } else {
+            setInterval(sumirMensagem, 5000)
         }
-        else {
-            if( sinopseVar.length > 1000 ) {
-                mensagem_erro.innerHTML = "Texto muito grande!";
-            } else {
-                setInterval(sumirMensagem, 5000)
-            }
+
+        if ( autorVar.length > 45 ) {
+            mensagem_erro.innerHTML = "Nome do autor muito grande!"
+            return false;
+        } else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        if( sinopseVar.length > 1000 ) {
+            mensagem_erro.innerHTML = "A sinopse está exageradamente grande."
+            return false;
+        } else if ( sinopseVar.length < 11 ) {
+            mensagem_erro.innerHTML = "A sinopse precisa ter no mínimo 10 caracteres."
+            return false;
+        } else {
+            setInterval(sumirMensagem, 5000)
         }
 
         // Enviando o valor da nova input
@@ -107,7 +139,7 @@
                 autorServer: autorVar,
                 sinopseServer: sinopseVar,
                 imgServer: imgVar,
-                destaqueServer: destaqueVAR
+                destaqueServer: destaqueVar
             })
         }).then(function (resposta) {
 
@@ -116,15 +148,15 @@
             if (resposta.ok) {
                 cardErro.style.display = "block"
                 mensagem_erro.innerHTML = "Cadastro realizado com sucesso!";
-                
-                limparFormulario();
-                finalizarAguardar();
+
+                //limparFormulario();
+                //finalizarAguardar();
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            // finalizarAguardar();
+            //finalizarAguardar();
         });
 
         return false;
@@ -135,3 +167,5 @@
     }
 
 </script>
+<script src="js/modal.js"></script>
+<script src="js/funcoes.js"></script>

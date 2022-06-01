@@ -47,10 +47,20 @@
   box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.8);
 }
 
-.livros #tituloLivro {
+.livros #nomeLivro {
+  text-align: center;
   margin: 30px 0 0 0;
   transition: 0.5s;
 }
-.livros #tituloLivro:hover {
-  font-size: 30px;
+.livros #nomeLivro:hover {
+  font-size: 26px;
+}
+
+.livros #autorLivro {
+  text-align: center;
+  margin: 5px 0 0 0;
+  transition: 0.5s;
+}
+.livros #autorLivro:hover {
+  color: rgb(94, 6, 175);
 }

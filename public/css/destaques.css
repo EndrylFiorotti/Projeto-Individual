@@ -10,7 +10,7 @@
 
 .destaques .container {
   width: 90vw;
-  height: 50vh;
+  height: 60vh;
   padding: 45px 0 0 0;
 
   overflow-x: scroll;
@@ -66,11 +66,20 @@
   box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.8);
 }
 
-.destaques #tituloLivro {
+.destaques #nomeLivro {
   text-align: center;
   margin: 30px 0 0 0;
   transition: 0.5s;
 }
-.destaques #tituloLivro:hover {
-  font-size: 30px;
+.destaques #nomeLivro:hover {
+  font-size: 26px;
+}
+
+.destaques #autorLivro {
+  text-align: center;
+  margin: 5px 0 0 0;
+  transition: 0.5s;
+}
+.destaques #autorLivro:hover {
+  color:rgb(94, 6, 175);
 }
