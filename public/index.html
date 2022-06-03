@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/livros.css">
-    <link rel="stylesheet" href="css/destaques.css">
-    <link rel="stylesheet" href="css/index.css">
-    <title>BooKing | Inicio </title>
-
-    <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/livros.css">
+        <link rel="stylesheet" href="css/destaques.css">
+        <link rel="stylesheet" href="css/index.css">
+        <title>BooKing | Inicio </title>
+        
+        <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 </head>
 
 <body>
     <div class="header">
         <div class="nav">
             <img src="https://cdn.discordapp.com/attachments/882040460011520030/974813802757521478/Logo_Preto_Coroa.png"
-                alt="Logo BooKing">
+            alt="Logo BooKing">
             <ul class="navbar">
                 <li><a href="#">inicio</a></li>
                 <li><a href="#DestaquesTitulo">Destaques</a></li>
@@ -37,7 +37,7 @@
             </div>
         </div>
     </div>
-
+    
     <div class="container first">
         <div class="card explicacao">
             <div class="pagina primeira">
@@ -47,13 +47,13 @@
                     meu do ensino fundamental, ali eu descobri um mundo a parte do meu, onde eu poderia fugir um pouco
                     da minha realidade e meu dia a dia, então criei a BooKing para pessoas que querem dar suas opiniões
                     e críticas a respeito dos livros que elas leram e que elas possam recomendá-los para outras pessoas.
-
+                    
                 </p>
             </div>
             <div class="pagina segunda"></div>
         </div>
     </div>
-
+    
     <div class="container second">
         <div class="card dashboard">
             <div class="pagina primeira">
@@ -62,7 +62,7 @@
             <div class="pagina segunda"></div>
         </div>
     </div>
-
+    
     <div class="footer">
         <div class="container">
             <div class="content">
@@ -101,76 +101,4 @@
 
 </html>
 
-<!-- <script src="js/dashboardLivros.js"></script> -->
-<script>
-    window.onload = obterDados();
-
-function obterDados() {
-    fetch(`/dashboard/dashboardDados`, { cache: 'no-store' }).then(function (response) {
-        if (response.ok) {
-            response.json().then(function (resposta) {
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                resposta.reverse();
-
-                plotar(resposta);
-            });
-        } else {
-            console.error('Nenhum dado encontrado ou erro na API');
-        }
-    })
-        .catch(function (error) {
-            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-        });
-}
-
-function plotar(resposta) {
-    console.log('iniciando plotagem do gráfico...');
-
-    var dados = {
-        labels: "Quantidade",
-        datasets: [
-            {
-                yAxisID: 'y-quantidadeLivros',
-                label: 'Quantidade de livros',
-                borderColor: '#32B9CD',
-                backgroundColor: '#32b9cd8f',
-                fill: true,
-                data: []
-            }
-        ]
-    };
-
-    for (i = 0; i < resposta.length; i++) {
-        var registro = resposta[i];
-        dados.datasets[0].data.push(registro.qntdLivros);
-    }
-
-    console.log(JSON.stringify(dados));
-
-    const ctx = document.getElementById('canvas_grafico').getContext('2d');
-    const myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: "Teste",
-        datasets: [{
-            label: 'Quantidade',
-            data: dados,
-            backgroundColor: [
-                'rgba(255, 0, 0, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 0, 0, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
-}
-</script>
+<script src="js/dashboardLivros.js"></script>

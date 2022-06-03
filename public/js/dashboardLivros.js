@@ -27,8 +27,8 @@ function plotar(resposta) {
             {
                 yAxisID: 'y-quantidadeLivros',
                 label: 'Quantidade de livros',
-                borderColor: '#32B9CD',
-                backgroundColor: '#32b9cd8f',
+                borderColor: '#000',
+                backgroundColor: '#000',
                 fill: true,
                 data: []
             }
@@ -42,45 +42,40 @@ function plotar(resposta) {
 
     console.log(JSON.stringify(dados));
 
-    var ctx = canvas_grafico.getContext('2d');
-    window.grafico_linha = Chart.Line(ctx, {
-        data: dados,
-        options: {
-            responsive: true,
-            animation: { duration: 500 },
-            hoverMode: 'index',
-            stacked: false,
-            title: {
-                display: false,
-                text: 'Dados capturados'
-            },
-            scales: {
-                yAxes: [{
-                    type: 'linear',
-                    display: true,
-                    position: 'left',
-                    id: 'y-temperatura',
-                    ticks: {
-                        beginAtZero: true,
-                        max: 100,
-                        min: 0
-                    }
-                }, {
-                    type: 'linear',
-                    display: false,
-                    position: 'right',
-                    id: 'y-umidade',
-                    ticks: {
-                        beginAtZero: true,
-                        max: 100,
-                        min: 0
-                    },
-
-                    gridLines: {
-                        drawOnChartArea: false,
-                    },
-                }],
+    const ctx = document.getElementById('canvas_grafico').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Livros'],
+        datasets: [{
+            label: 'Quantidade de Livros total',
+            data: dados.datasets[0].data,
+            backgroundColor: [
+                'rgba(255, 0, 0, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 0, 0, 1)'
+            ],
+            borderWidth: 1
+        },
+        {
+            label: 'Umidade',
+            data: [90, 89, 93, 87, 88, 82],
+            backgroundColor: [
+                'rgba(0, 0, 255, 0.2)'
+            ],
+            borderColor: [
+                'rgba(0, 0, 255, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
             }
         }
-    });
+    }
+});
 }

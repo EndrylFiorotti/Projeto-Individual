@@ -10,7 +10,7 @@
 
 .destaques .container {
   width: 90vw;
-  height: 60vh;
+  height: 65vh;
   padding: 45px 0 0 0;
 
   overflow-x: scroll;
@@ -67,6 +67,8 @@
 }
 
 .destaques #nomeLivro {
+  width: 80%;
+
   text-align: center;
   margin: 30px 0 0 0;
   transition: 0.5s;
