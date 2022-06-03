@@ -6,7 +6,8 @@ function buscarDados() {
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         instrucaoSql = `
-            SELECT COUNT(idLivro) as qntdLivros FROM Livro;
+        SELECT COUNT(idLivro) as qntdLivros FROM Livro
+        GROUP BY destaqueLivro;
         `;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `

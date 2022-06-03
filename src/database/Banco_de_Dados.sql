@@ -43,4 +43,5 @@ CREATE TABLE Comentario(
 SELECT * FROM Usuario;
 SELECT * FROM Livro;
 -- DELETE FROM Livro WHERE idLivro = 10;
+SELECT COUNT(idLivro) as qntdLivros, COUNT(idLivro) as qntdLivrosDestaque FROM Livro WHERE destaqueLivro = 1;
 INSERT INTO Usuario VALUES ( null, 'Endryl Fiorotti', 'endryl@gmail.com', '102030', 'Sim' );

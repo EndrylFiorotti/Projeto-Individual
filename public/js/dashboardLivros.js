@@ -23,33 +23,24 @@ function plotar(resposta) {
 
     var dados = {
         labels: "Quantidade",
-        datasets: [
-            {
-                yAxisID: 'y-quantidadeLivros',
-                label: 'Quantidade de livros',
-                borderColor: '#000',
-                backgroundColor: '#000',
-                fill: true,
-                data: []
-            }
-        ]
+        data: []
     };
 
     for (i = 0; i < resposta.length; i++) {
         var registro = resposta[i];
-        dados.datasets[0].data.push(registro.qntdLivros);
+        dados.data.push(registro.qntdLivros);
     }
 
     console.log(JSON.stringify(dados));
 
     const ctx = document.getElementById('canvas_grafico').getContext('2d');
-const myChart = new Chart(ctx, {
+    const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: ['Livros'],
         datasets: [{
             label: 'Quantidade de Livros total',
-            data: dados.datasets[0].data,
+            data: dados.data[0],
             backgroundColor: [
                 'rgba(255, 0, 0, 0.2)'
             ],
@@ -59,8 +50,8 @@ const myChart = new Chart(ctx, {
             borderWidth: 1
         },
         {
-            label: 'Umidade',
-            data: [90, 89, 93, 87, 88, 82],
+            label: 'Quantidade de Livros em destaque',
+            data: dados.data[1],
             backgroundColor: [
                 'rgba(0, 0, 255, 0.2)'
             ],
