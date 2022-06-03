@@ -181,5 +181,10 @@ function plotarLivrosEspecificos(resposta) {
   sessionStorage.setItem("imgLivro", dadosLivro.imgLivro);
   sessionStorage.setItem("autorLivro", dadosLivro.autorLivro);
   sessionStorage.setItem("destaqueLivro", dadosLivro.destaqueLivro);
-  window.location = "../livroPagina.html";
+  
+  var url = window.location.href;
+  var urlsplit = url.split("/")[3]
+  sessionStorage.setItem("url", urlsplit);
+
+  window.location = "../livroPagina.html"
 }

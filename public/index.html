@@ -8,7 +8,11 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/livros.css">
     <link rel="stylesheet" href="css/destaques.css">
+    <link rel="stylesheet" href="css/index.css">
     <title>BooKing | Inicio </title>
+
+    <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 </head>
 
 <body>
@@ -33,17 +37,30 @@
             </div>
         </div>
     </div>
-    
-    <div class="destaques">
-        <h1 id="DestaquesTitulo" class="titulo">Destaques</h1>
-        <div class="container">
-          <div class="containerMenor" id="div_destaques"></div>
-        </div>
-      </div>
 
-    <div class="livros">
-        <h1 id="livrosTitulo" class="titulo">Livros</h1>
-        <div class="container" id="caixa_livros"></div>
+    <div class="container first">
+        <div class="card explicacao">
+            <div class="pagina primeira">
+                <p>
+                    Criei a BooKing por minha paixão a livros, desde novo tive contato com pessoas que liam e que me
+                    incentivavam a ler mais e mais livros, o primeiro livro que eu li, foi a recomendação de um amigo
+                    meu do ensino fundamental, ali eu descobri um mundo a parte do meu, onde eu poderia fugir um pouco
+                    da minha realidade e meu dia a dia, então criei a BooKing para pessoas que querem dar suas opiniões
+                    e críticas a respeito dos livros que elas leram e que elas possam recomendá-los para outras pessoas.
+
+                </p>
+            </div>
+            <div class="pagina segunda"></div>
+        </div>
+    </div>
+
+    <div class="container second">
+        <div class="card dashboard">
+            <div class="pagina primeira">
+                <canvas id="canvas_grafico"></canvas>
+            </div>
+            <div class="pagina segunda"></div>
+        </div>
     </div>
 
     <div class="footer">
@@ -83,5 +100,77 @@
 </body>
 
 </html>
-<script src="./js/livros.js"></script>
-<script src="./js/livrosInfo.js"></script>
+
+<!-- <script src="js/dashboardLivros.js"></script> -->
+<script>
+    window.onload = obterDados();
+
+function obterDados() {
+    fetch(`/dashboard/dashboardDados`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                resposta.reverse();
+
+                plotar(resposta);
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}
+
+function plotar(resposta) {
+    console.log('iniciando plotagem do gráfico...');
+
+    var dados = {
+        labels: "Quantidade",
+        datasets: [
+            {
+                yAxisID: 'y-quantidadeLivros',
+                label: 'Quantidade de livros',
+                borderColor: '#32B9CD',
+                backgroundColor: '#32b9cd8f',
+                fill: true,
+                data: []
+            }
+        ]
+    };
+
+    for (i = 0; i < resposta.length; i++) {
+        var registro = resposta[i];
+        dados.datasets[0].data.push(registro.qntdLivros);
+    }
+
+    console.log(JSON.stringify(dados));
+
+    const ctx = document.getElementById('canvas_grafico').getContext('2d');
+    const myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: "Teste",
+        datasets: [{
+            label: 'Quantidade',
+            data: dados,
+            backgroundColor: [
+                'rgba(255, 0, 0, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 0, 0, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+}
+</script>

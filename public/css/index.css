@@ -1,0 +1,35 @@
+.container {
+  width: 95vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .card {
+  width: 80%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 3px rgb(0, 0, 0, 0.6);
+}
+
+.container.second .card.dashboard{
+  height: 80%;
+}
+
+.card.explicacao .pagina {
+    width: 50%;
+    height: 100%;
+}
+
+.pagina p {
+    margin: 20px;
+
+    font-size: 25px;
+    text-align: justify;
+}

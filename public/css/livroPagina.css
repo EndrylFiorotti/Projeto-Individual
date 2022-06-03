@@ -2,7 +2,7 @@
     position: static;
 }
 
-.container_cima {
+.container_livro {
     width: 100vw;
     height: 70vh;
     
@@ -13,47 +13,66 @@
     border-bottom: 2px solid red;
 }
 
-.container_cima .content {
-    width: 80%;
+.container_livro .content {
+    width: 60%;
     height: 80%;
     padding: 10px;
 
     display: flex;
     align-items: center;
 
-    border-radius: 0 10px 0 10px;
-    background-color: #DCDCDC;
+    border-radius: 10px;
+    border-top: 5px solid rebeccapurple;
+    box-shadow: 5px 5px 10px 0 rgb(0, 0, 0, .3);
 }
 
-.container_cima .imagem {
+.container_livro .imagem {
     height: 95%;
+    margin-left: -150px;
+
     display: flex;
     justify-content: center;
     
     border: 3px solid black;
-    border-radius: 0 10px 0 10px;
+    border-radius: 10px;
     overflow: hidden;
+
+    transition: .8s;
 }
 
-.container_cima .div_info {
+.container_livro .imagem:hover {
+    height: 98%;
+}
+
+.container_livro .div_info {
     width: 80%;
     margin: 10px;
 }
 
-.container_cima #nome {
-    font-size: 29px;
+.container_livro #nome {
+    font-size: 50px;
     transition: .5s;
 }
 
-.container_cima #nome:hover {
-    font-size: 30px;
+.container_livro #nome:hover {
+    font-size: 52px;
 }
 
-.container_cima #autor {
+.container_livro #autor {
+    font-size: 25px;
+}
+
+.container_livro #sinopse {
+    width: 100%;
+    margin: 10px 0;  
+}
+
+.container_livro p {
     font-size: 20px;
 }
 
-.container_cima #sinopse {
-    width: 100%;
-    margin: 10px 0;   
+.container_livro #destaque {
+
 }
+
+/*----Comentários----*/

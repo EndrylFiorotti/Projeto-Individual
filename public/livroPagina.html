@@ -28,9 +28,9 @@
             <img src="https://cdn.discordapp.com/attachments/882040460011520030/974813802757521478/Logo_Preto_Coroa.png"
                 alt="Logo BooKing">
             <ul class="navbar">
-                <li><a href="indexAdmin.html">inicio</a></li>
-                <li><a href="indexAdmin.html#DestaquesTitulo">Destaques</a></li>
-                <li><a href="indexAdmin.html#livrosTitulo">Livros</a></li>
+                <li id="inicio"></li>
+                <li id="inicioDestaque"></li>
+                <li id="inicioLivro"></li>
                 <li>
                     <button onclick="Usuario()" class="btn-usuario">
                         <img src="https://cdn-icons-png.flaticon.com/512/17/17004.png" alt="Usuário">
@@ -40,7 +40,7 @@
         </div>
     </div>
 
-    <div class="container_cima">
+    <div class="container_livro">
         <div class="content">
             <div class="imagem" id="imagem"></div>
             <div class="div_info">
@@ -56,12 +56,24 @@
         </div>
     </div>
 
+    <div class="container_comentario">
+        
+    </div>
+
 </body>
 
 </html>
 <script src="js/modal.js"></script>
 <script>
     Plotar();
+    Paginas();
+
+    function Paginas() {
+        inicio.innerHTML = `<a href="${sessionStorage.url}">inicio</a>`
+        inicioDestaque.innerHTML = `<a href="${sessionStorage.url}#DestaquesTitulo">Destaque</a>`
+        inicioLivro.innerHTML = `<a href="${sessionStorage.url}#livrosTitulo">Livros</a>`
+    }
+
     function Plotar() {
         tituloPagina.innerHTML = `BooKing | ${sessionStorage.nomeLivro}`;
         imagem.innerHTML = `<img src="${sessionStorage.imgLivro}" class="imagemLivro">`;
