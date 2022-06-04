@@ -175,12 +175,12 @@ function plotarLivrosEspecificos(resposta) {
     dadosLivro.destaqueLivro.push(registro.destaqueLivro);
   }
 
-  sessionStorage.setItem("idLivro", dadosLivro.idLivro);
-  sessionStorage.setItem("nomeLivro", dadosLivro.nomeLivro);
-  sessionStorage.setItem("sinopseLivro", dadosLivro.sinopseLivro);
-  sessionStorage.setItem("imgLivro", dadosLivro.imgLivro);
-  sessionStorage.setItem("autorLivro", dadosLivro.autorLivro);
-  sessionStorage.setItem("destaqueLivro", dadosLivro.destaqueLivro);
+  sessionStorage.setItem("ID_LIVRO", dadosLivro.idLivro);
+  sessionStorage.setItem("NOME_LIVRO", dadosLivro.nomeLivro);
+  sessionStorage.setItem("SINOPSE_LIVRO", dadosLivro.sinopseLivro);
+  sessionStorage.setItem("IMG_LIVRO", dadosLivro.imgLivro);
+  sessionStorage.setItem("AUTOR_LIVRO", dadosLivro.autorLivro);
+  sessionStorage.setItem("DESTAQUE_LIVRO", dadosLivro.destaqueLivro);
   
   var url = window.location.href;
   var urlsplit = url.split("/")[3]

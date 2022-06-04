@@ -1,22 +1,16 @@
-.header {
-    position: static;
-}
-
 .container_livro {
-    width: 100vw;
     height: 70vh;
     
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    border-bottom: 2px solid red;
 }
 
 .container_livro .content {
     width: 60%;
     height: 80%;
     padding: 10px;
+    margin-top: 15vh;
 
     display: flex;
     align-items: center;
@@ -71,8 +65,73 @@
     font-size: 18px;
 }
 
-.container_livro #destaque {
+/*----Comentários----*/
 
+.container_comentario {
+    height: 150vh;
+    margin-top: 5vh;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
-/*----Comentários----*/
+.container_comentario .div_form {
+    width: 50%;
+    padding: 20px;
+
+    border-radius: 10px;
+    border-top: 5px solid rebeccapurple;
+    box-shadow: 5px 5px 10px 0 rgb(0, 0, 0, .3);
+}
+
+.div_form #form_postagem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#form_postagem label{
+    font-size: 25px;
+}
+
+#form_postagem textarea{
+    width: 80%;
+
+    font-size: 20px;
+}
+
+.comentarios {
+    width: 50%;
+    margin: 30px 0;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.comentarios::-webkit-scrollbar {
+  width: 12px;
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+.comentarios::-webkit-scrollbar-thumb {
+  background-color: rgb(94, 6, 175);
+  border-radius: 10px;
+}
+
+.comentarios .feed-container {
+    width: 90%;
+    padding: 20px;
+    margin: 10px 0;
+
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 0 rgb(0, 0, 0, .3);
+}
+
+.feed-container #comentarioUsuario {
+    width: 80%;
+}

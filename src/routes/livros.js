@@ -7,10 +7,6 @@ router.get("/", function (req, res) {
     livrosController.testar(req, res);
 });
 
-router.get("/listar", function (req, res) {
-    livrosController.listar(req, res);
-});
-
 router.get("/mostrarLivros", function (req, res) {
     livrosController.buscarLivros(req, res);
 });
