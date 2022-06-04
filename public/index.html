@@ -2,6 +2,7 @@
 <html lang="pt-br">
 
 <head>
+    <link rel="shortcut icon" href="https://cdn.discordapp.com/attachments/882040460011520030/982465838558883930/icon_k.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,6 @@
     <title>BooKing | Inicio </title>
 
     <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 </head>
 
 <body>
@@ -23,7 +23,7 @@
             <ul class="navbar">
                 <li><a href="#">inicio</a></li>
                 <li><a href="#DestaquesTitulo">Destaques</a></li>
-                <li><a href="#livrosTitulo">Livros</a></li>
+                <li><a href="#Dashboard">Dashboard</a></li>
                 <li><a href="./login.html">Login</a></li>
             </ul>
         </div>
@@ -38,7 +38,7 @@
         </div>
     </div>
 
-    <div class="container first">
+    <div class="box first">
         <div class="card explicacao">
             <div class="pagina primeira">
                 <p>
@@ -54,7 +54,16 @@
         </div>
     </div>
 
-    <div class="container second">
+    <div class="box second">
+        <h1 class="titulo" id="Dashboard">
+            Dashboard
+        </h1>
+        <div class="card qtdLivros">
+            <h3>
+                Quantidade total de livros cadastrados
+            </h3>
+            <div id="div_qtdLivros"></div>
+        </div>
         <div class="card dashboard">
             <div class="dash">
                 <canvas id="canvas_grafico"></canvas>

@@ -1,19 +1,15 @@
-.container {
+.box {
   width: 95vw;
   height: 100vh;
 
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
-.card.explicacao .pagina {
-    width: 50%;
-    height: 100%;
-}
-
-.container .card {
-  width: 80%;
+.box .card {
+  width: 60%;
   
   display: flex;
   justify-content: center;
@@ -23,7 +19,32 @@
   box-shadow: 5px 5px 5px 3px rgb(0, 0, 0, 0.6);
 }
 
-.container.second .card.dashboard{
+.card.explicacao {
+  height: 80%;
+}
+
+.card.explicacao .pagina {
+    width: 50%;
+    height: 100%;
+}
+
+.card.qtdLivros {
+  width: 30vw;
+  margin-bottom: 50px;
+  padding: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.card.qtdLivros #div_qtdLivros {
+  font-size: 20px;
+}
+
+.box.second .card.dashboard {
   display: flex;
   flex-direction: column;
 }
@@ -31,7 +52,7 @@
 .pagina p {
     margin: 20px;
 
-    font-size: 20px;
+    font-size: 25px;
     text-align: justify;
 }
 

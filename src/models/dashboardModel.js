@@ -11,7 +11,8 @@ function buscarDados() {
         `;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `
-            SELECT COUNT(idLivro) as qntdLivros FROM Livro;
+        SELECT COUNT(idLivro) as qntdLivros FROM Livro
+        GROUP BY destaqueLivro;
         `;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
