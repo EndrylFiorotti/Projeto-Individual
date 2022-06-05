@@ -25,13 +25,33 @@
 .information {
   width: 100%;
   height: 80vh;
-
+  
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  
 }
+
+.information .texto {
+  width: 100%;
+  height: 100%;
+
+  color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: .8s;
+}
+
+.card .texto:hover {
+  text-align: center;
+  
+  color: black;
+  font-size: 23px;
+  backdrop-filter:blur(7px);
+}
+/*-----Primeira seção------*/
 
 .section.first {
   width: 50%;
@@ -39,20 +59,36 @@
 }
 
 .sub-section {
-  height: 40%;
+  height: 45%;
 
   display: flex;
   justify-content: space-between;
 }
 
+/*-----Sub-seção------*/
+
+.sub-section .card.first{
+  background-image: url(https://cdn.discordapp.com/attachments/882040460011520030/983018137802920006/Livros.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sub-section .card.second{
+  background-image: url(https://cdn.discordapp.com/attachments/882040460011520030/983062510821326868/PrimeiraColecaoLivros.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .section.first .card {
   width: 48%;
   height: 90%;
+
+  overflow: hidden;
 }
 
 .section.first .card.third{
   width: 100%;
-  height: 60%;
+  height: 55%;
 
   display: flex;
   justify-content: center;
@@ -68,6 +104,8 @@
   font-size: 18px;
 }
 
+/*-----Segunda seção------*/
+
 .section.second {
   width: 10%;
   height: 100%;
@@ -80,6 +118,36 @@
 
 .section.second .card {
   height: 30%;
+}
+
+.section.second .card.fourth {
+  background-image: url(https://images-na.ssl-images-amazon.com/images/I/81riqu6fsNL.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card.fourth .texto:hover {
+  color: #DAA520;
+}
+
+.card.fifth .texto:hover {
+  color: #C0C0C0;
+}
+
+.card.sixth .texto:hover {
+  color: 	#A62A2A;
+}
+
+.section.second .card.fifth {
+  background-image: url(https://m.media-amazon.com/images/I/515u5OKYL0L.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section.second .card.sixth {
+  background-image: url(https://images-na.ssl-images-amazon.com/images/I/613DX2+NRXL.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /*------ Parte da Dashboard ------*/
