@@ -18,7 +18,7 @@
     <!-- Modal -->
     <div id="bg"></div>
     <div class="box">
-        <a href="#Valores" id="close">X</a>
+        <a href="" id="close">X</a>
         <div id="titulo"></div>
         <div id="texto"></div>
         <div class="btn">
@@ -49,11 +49,7 @@
             <div class="div_info">
                 <div id="nome"></div>
                 <div id="autor"></div>
-
-                <div id="sinopse">
-                    <p id="texto_sinopse"></p>
-                </div>
-
+                <div id="sinopse"><p id="texto_sinopse"></p></div>
                 <div id="destaque"></div>
             </div>
         </div>
@@ -66,7 +62,7 @@
                 <label for="textarea_comentario">
                     Escreva um comentário
                 </label>
-                <textarea id="textarea_comentario" cols="20" rows="5" placeholder="Máximo de 250 caracteres"></textarea>
+                <textarea id="textarea_comentario" cols="20" rows="5" maxlength="250" placeholder="Máximo de 250 caracteres"></textarea>
                 <button class="btn-livros" onclick="publicar()">Enviar</button>
             </form>
         </div>
@@ -77,6 +73,8 @@
 
 </html>
 <script src="js/modal.js"></script>
+<script src="js/comentarios.js"></script>
+<script src="js/excluirLivro.js"></script>
 <script>
     Plotar();
     Paginas();
@@ -97,89 +95,5 @@
         if (sessionStorage.DESTAQUE_LIVRO == 1) {
             destaque.innerHTML = `Este livro está nos destaques!!!`
         };
-    }
-
-    function publicar() {
-        var comentarioVar = textarea_comentario.value;
-        var idUsuarioVar = sessionStorage.ID_USUARIO;
-        var idLivroVar = sessionStorage.ID_LIVRO;
-
-        if (comentarioVar == "") {
-            alert("Insira um comentário antes de enviar");
-
-            return false;
-        } else {
-            // Enviando o valor da nova input
-            fetch("/mensagem/publicar", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    // crie um atributo que recebe o valor recuperado aqui
-                    // Agora vá para o arquivo routes/usuario.js
-                    comentarioServer: comentarioVar,
-                    idUsuarioServer: idUsuarioVar,
-                    idLivroServer: idLivroVar
-                })
-            }).then(function (resposta) {
-
-                console.log("resposta: ", resposta);
-
-                if (resposta.ok) {
-                    console.log("Mensagem enviada com sucesso!");
-                } else {
-                    throw ("Houve um erro ao tentar realizar o cadastro!");
-                }
-            }).catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-            });
-
-            return false;
-        }
-    }
-
-    function obterDadosComentario(idLivro) {
-        fetch(`/mensagem/listar/${idLivro}`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
-                    plotarComentarios(resposta);
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        }).catch(function (error) {
-            console.error(`Erro na obtenção dos dados: ${error.message}`);
-        });
-    }
-
-    function plotarComentarios(resposta) {
-        console.log('iniciando plotagem dos comentários...');
-
-        var dadosComentario = {
-            nomeUsuario: [],
-            comentarioUsuario: []
-        };
-
-        for (var i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            dadosComentario.nomeUsuario.push(registro.nomeUsuario);
-            dadosComentario.comentarioUsuario.push(registro.comentarioUsuario);
-        }
-
-        for (var i = 0; i < dadosComentario.nomeUsuario.length; i++) {
-            comentarios.innerHTML += `
-                <div id="feed_container" class="feed-container">
-                    <h3 id="nomeUsuario">
-                        ${dadosComentario.nomeUsuario[i]}
-                    </h3>
-                    <div class="comentarioUsuario">
-                        ${dadosComentario.comentarioUsuario[i]}
-                    </div>
-                </div>
-            `;
-        }
     }
 </script>

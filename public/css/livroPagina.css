@@ -68,7 +68,7 @@
 /*----Comentários----*/
 
 .container_comentario {
-    height: 150vh;
+    height: 120vh;
     margin-top: 5vh;
 
     display: flex;
@@ -97,6 +97,7 @@
 
 #form_postagem textarea{
     width: 80%;
+    padding: 10px;
 
     font-size: 20px;
 }

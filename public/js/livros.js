@@ -112,7 +112,7 @@ function plotarDados(resposta) {
 
   for (var i = 0; i < dados.idLivro.length; i++) {
     caixa_livros.innerHTML += `
-        <div class="content">
+        <div class="content" id="livro">
             <div class="imagem">
                 <img class="imagemCard" src="${dados.imgLivro[i]}">
             </div>
@@ -135,13 +135,11 @@ function AdicionarLivro() {
   window.location = "./cadastrarLivro.html";
 }
 
-// Mostra os livros que foram clicados
-
+// Mostra os livros que foram clicados no "sobre mais"
 function obterDadosLivroEspecifico(idLivro) {
   fetch(`/livros/mostrarLivrosEspecifico/${idLivro}`, { cache: 'no-store' }).then(function (response) {
     if (response.ok) {
       response.json().then(function (resposta) {
-        // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
         resposta.reverse();
         plotarLivrosEspecificos(resposta, idLivro);
       });
