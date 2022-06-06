@@ -87,9 +87,11 @@
 
 </html>
 <script>
+    function apagar_mensagem() {
+        mensagem_erro.innerHTML = "";
+    }
+
     function cadastrar() {
-        //Recupere o valor da nova input pelo nome do id
-        // Agora vá para o método fetch logo abaixo
         var nomeVar = nome_input.value;
         var autorVar = nome_autor_input.value;
         var sinopseVar = sinopse_input.value;
@@ -98,44 +100,44 @@
 
         if (nomeVar == "" || sinopseVar == "" || imgVar == "" || autorVar == "") {
             mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
-            return false;
-        } else {
-            setInterval(sumirMensagem, 5000)
-        } 
+            setTimeout(apagar_mensagem, 3000);
 
-        if ( nomeVar.length > 45 ) {
+            return false;
+        } else if ( nomeVar.length > 100 ) {
             mensagem_erro.innerHTML = "Nome do livro muito grande!"
-            return false;
-        } else {
-            setInterval(sumirMensagem, 5000)
-        }
+            setTimeout(apagar_mensagem, 3000);
 
-        if ( autorVar.length > 45 ) {
+            return false;
+        } else if ( autorVar.length > 45 ) {
             mensagem_erro.innerHTML = "Nome do autor muito grande!"
-            return false;
-        } else {
-            setInterval(sumirMensagem, 5000)
-        }
+            setTimeout(apagar_mensagem, 3000);
 
-        if( sinopseVar.length > 1000 ) {
+            return false;
+        } else if( sinopseVar.length > 1000 ) {
             mensagem_erro.innerHTML = "A sinopse está exageradamente grande."
+            setTimeout(apagar_mensagem, 3000);
+
             return false;
         } else if ( sinopseVar.length < 11 ) {
             mensagem_erro.innerHTML = "A sinopse precisa ter no mínimo 10 caracteres."
+            setTimeout(apagar_mensagem, 3000);
+
+            return false;
+        } else if ( sinopseVar.indexOf("'") ) {
+            mensagem_erro.innerHTML = "Na sinopse não pode conter áspas simples: ' ."
+            setTimeout(apagar_mensagem, 3000);
+
             return false;
         } else {
-            setInterval(sumirMensagem, 5000)
+            mensagem_erro.innerHTML = "";
         }
 
-        // Enviando o valor da nova input
         fetch("/livros/cadastrar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
                 nomeServer: nomeVar,
                 autorServer: autorVar,
                 sinopseServer: sinopseVar,
@@ -147,26 +149,20 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                cardErro.style.display = "block"
                 mensagem_erro.innerHTML = "Cadastro realizado com sucesso!";
-
-                //limparFormulario();
-                //finalizarAguardar();
+                nome_input.value = ""
+                nome_autor_input.value = ""
+                sinopse_input.value = ""
+                img_input.value = ""
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            //finalizarAguardar();
         });
 
         return false;
     }
 
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
-
 </script>
 <script src="js/modal.js"></script>
-<script src="js/funcoes.js"></script>

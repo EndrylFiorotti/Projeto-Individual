@@ -36,7 +36,7 @@
                     Login
                 </h1>
                 <label for="email_input">E-mail</label>
-                <input id="email_input" type="text" placeholder="Login">
+                <input id="email_input" type="email" placeholder="Login">
                 <label for="senha_input">Senha</label>
                 <input id="senha_input" type="password" placeholder="******">
                 <a href="./cadastro.html">Faça seu cadastro!!!</a>
@@ -59,7 +59,9 @@
 </html>
 
 <script>
-
+    function apagar_mensagem() {
+        mensagem_erro.innerHTML = "";
+    }
 
     function entrar() {
         var emailVar = email_input.value;
@@ -67,27 +69,18 @@
 
         // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
         if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
             mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
-            // finalizarAguardar();
-            return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
+            setTimeout(apagar_mensagem, 3000);
 
-        if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
-            cardErro.style.display = "block"
+            return false;
+        } else if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
             mensagem_erro.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
-            // finalizarAguardar();
+            setTimeout(apagar_mensagem, 3000);
+            
             return false;
+        } else {
+            mensagem_erro.innerHTML = "";
         }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
-
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
 
         fetch("/usuarios/autenticar", {
             method: "POST",
@@ -102,8 +95,6 @@
             console.log("ESTOU NO THEN DO entrar()!")
 
             if (resposta.ok) {
-                console.log(resposta);
-
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
@@ -126,12 +117,9 @@
                 });
 
             } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
                 resposta.text().then(texto => {
-                    console.error(texto);
-                    // finalizarAguardar(texto);
+                    mensagem_erro.innerHTML = texto;
+                    setTimeout(apagar_mensagem, 3000);
                 });
             }
 
@@ -140,10 +128,6 @@
         })
 
         return false;
-    }
-
-    function sumirMensagem() {
-        cardErro.style.display = "none"
     }
 
 </script>

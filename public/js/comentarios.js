@@ -7,35 +7,38 @@ function publicar() {
         alert("Insira um comentário antes de enviar");
 
         return false;
-    } else {
-        // Enviando o valor da nova input
-        fetch("/mensagem/publicar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                comentarioServer: comentarioVar,
-                idUsuarioServer: idUsuarioVar,
-                idLivroServer: idLivroVar
-            })
-        }).then(function (resposta) {
-
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                console.log("Mensagem enviada com sucesso!");
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
+    } else if ( comentarioVar.length > 250 ) {
+        alert("Comentário muito grande.");
 
         return false;
     }
+    
+    fetch("/mensagem/publicar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            comentarioServer: comentarioVar,
+            idUsuarioServer: idUsuarioVar,
+            idLivroServer: idLivroVar
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+            console.log("Mensagem enviada com sucesso!");
+        } else {
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+
+    return false;
 }
 
 function obterDadosComentario(idLivro) {

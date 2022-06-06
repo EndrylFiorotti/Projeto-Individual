@@ -2,7 +2,9 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="https://cdn.discordapp.com/attachments/882040460011520030/982465838558883930/icon_k.png" type="image/x-icon">
+    <link rel="shortcut icon"
+        href="https://cdn.discordapp.com/attachments/882040460011520030/982465838558883930/icon_k.png"
+        type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +23,8 @@
     <!--header inicio-->
     <div class="header">
         <div class="nav">
-            <img src="https://cdn.discordapp.com/attachments/882040460011520030/974813802757521478/Logo_Preto_Coroa.png" alt="Logo BooKing">
+            <img src="https://cdn.discordapp.com/attachments/882040460011520030/974813802757521478/Logo_Preto_Coroa.png"
+                alt="Logo BooKing">
             <ul class="navbar">
                 <li><a href="index.html">inicio</a></li>
                 <li><a href="login.html">Login</a></li>
@@ -41,7 +44,7 @@
                 <label for="nome_input">Nome</label>
                 <input id="nome_input" type="text" placeholder="Seu nome">
                 <label for="email_input">E-mail</label>
-                <input id="email_input" type="text" placeholder="meuemail@provedor.com">
+                <input id="email_input" type="email" placeholder="meuemail@provedor.com">
                 <label for="senha_input">Senha</label>
                 <input id="senha_input" type="password" placeholder="******">
                 <label for="confirmacao_senha_input">Confirmar Senha</label>
@@ -55,9 +58,7 @@
                     </button>
                 </div>
                 <div id="cardErro">
-                    <div id="mensagem_erro">
-
-                    </div>
+                    <div id="mensagem_erro"></div>
                 </div>
             </div>
         </div>
@@ -67,6 +68,10 @@
 </html>
 
 <script>
+    function apagar_mensagem() {
+        mensagem_erro.innerHTML = "";
+    }
+
     function cadastrar() {
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
@@ -76,34 +81,28 @@
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-            cardErro.style.display = "block"
             mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
+            setTimeout(apagar_mensagem, 3000);
 
-            // finalizarAguardar();
             return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
-
-        if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
-            cardErro.style.display = "block"
+        } else if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
             mensagem_erro.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
-            // finalizarAguardar();
-            return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
+            setTimeout(apagar_mensagem, 3000);
 
-        if (senhaVar != confirmacaoSenhaVar) {
-            cardErro.style.display = "block"
+            return false;
+        } else if (senhaVar != confirmacaoSenhaVar) {
             mensagem_erro.innerHTML = "As senhas inseridas devem ser iguais para prosseguir!";
-            // finalizarAguardar();
+            setTimeout(apagar_mensagem, 3000);
+
             return false;
         }
-        else {
-            setInterval(sumirMensagem, 5000)
+        else if (senhaVar.length <= 8) {
+            mensagem_erro.innerHTML = "Senha muito pequena para prosseguir!";
+            setTimeout(apagar_mensagem, 3000);
+
+            return false;
+        } else {
+            mensagem_erro.innerHTML = ""
         }
 
         // Enviando o valor da nova input
@@ -138,10 +137,6 @@
         });
 
         return false;
-    }
-
-    function sumirMensagem() {
-        cardErro.style.display = "none"
     }
 
 </script>
