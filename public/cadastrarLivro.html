@@ -123,7 +123,7 @@
             setTimeout(apagar_mensagem, 3000);
 
             return false;
-        } else if ( sinopseVar.indexOf("'") ) {
+        } else if ( sinopseVar.indexOf("'") && sinopseVar.indexOf("'") > 0 ) {
             mensagem_erro.innerHTML = "Na sinopse não pode conter áspas simples: ' ."
             setTimeout(apagar_mensagem, 3000);
 
